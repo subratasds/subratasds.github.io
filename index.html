@@ -67,7 +67,7 @@
     const bnDigits=value=>String(value).replace(/[0-9]/g,d=>'০১২৩৪৫৬৭৮৯'[Number(d)]);
     const dateFormat=new Intl.DateTimeFormat('bn-BD',{timeZone:'Asia/Kolkata',weekday:'long',day:'numeric',month:'long',year:'numeric'});
     const timeFormat=new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
-    function updateClock(){const now=new Date();document.getElementById('live-date').textContent=dateFormat.format(now);document.getElementById('live-time').textContent=timeFormat.format(now)+' · IST';}
+    function updateClock(){const now=new Date();document.getElementById('live-date').textContent=dateFormat.format(now);document.getElementById('live-time').textContent=timeFormat.format(now);}
     updateClock();setInterval(updateClock,1000);
     document.getElementById('year').textContent=bnDigits(new Date().getFullYear());
     const storageKey='amar-srijoner-jogot-entries-v1';

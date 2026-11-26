@@ -10,10 +10,10 @@
   <style>
     :root{color-scheme:dark;--bg:#0b1220;--panel:#111c2e;--text:#f1f5ff;--muted:#b3bfd2;--line:rgba(255,255,255,.12);--accent:#8bd8f5;--accent2:#c4a7ff}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 82% 0%,rgba(124,58,237,.19),transparent 36%),radial-gradient(ellipse at 0% 24%,rgba(14,165,233,.14),transparent 34%),var(--bg);color:var(--text);font:16px/1.85 system-ui,"Noto Sans Bengali","Nirmala UI",sans-serif}
-    a{color:inherit;text-decoration:none}.wrap{width:min(1060px,calc(100% - 40px));margin:auto}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1060px,calc(100% - 40px));margin:auto;padding-top:72px}
     header{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-weight:800;font-size:1.12rem}.brand span{color:var(--accent)}nav{display:flex;gap:25px;color:var(--muted);font-size:.94rem}nav a:hover,.text-link:hover{color:var(--accent)}
     .hero{padding:76px 0 86px}.hero-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(220px,.7fr);align-items:center;gap:52px}.hero-copy{min-width:0}.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:999px;padding:6px 14px;color:var(--muted);font-size:.9rem}.dot{width:8px;height:8px;background:#4ade80;border-radius:50%;box-shadow:0 0 14px #4ade80}
-    .live-clock{display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:1px;margin:0 0 20px auto;padding:11px 16px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.045);width:max-content;max-width:100%}.clock-time{font-size:1rem;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}.clock-date{font-size:.88rem;color:var(--muted)}
+    .live-clock{position:absolute;top:8px;right:max(20px,calc((100vw - 1060px)/2));display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:0;padding:5px 10px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.045);width:max-content;max-width:calc(100vw - 24px)}.clock-time{font-size:1rem;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}.clock-date{font-size:.88rem;color:var(--muted)}
     h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1.2;letter-spacing:-.035em;margin:22px 0 13px}h1 span{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}.tagline{color:var(--accent);font-size:1.05rem;margin:0 0 12px}.lead{font-size:clamp(1.03rem,2vw,1.2rem);color:var(--muted);max-width:650px;margin:0}
     .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:12px;font-weight:700;border:1px solid var(--line);transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.primary{background:linear-gradient(100deg,#8bd8f5,#c4a7ff);color:#101827;border:0}.secondary{background:rgba(255,255,255,.045)}
     .profile-wrap{justify-self:end;width:min(100%,285px);padding:9px;border:1px solid rgba(255,255,255,.2);border-radius:26px;background:linear-gradient(145deg,rgba(125,211,252,.22),rgba(167,139,250,.18));box-shadow:0 24px 70px rgba(0,0,0,.3)}.profile-photo{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:19px}
@@ -25,13 +25,13 @@
   </style>
 </head>
 <body>
+  <div class="live-clock" aria-label="বাংলা তারিখ ও ইংরেজি সময়"><time id="live-date" class="clock-date">তারিখ দেখা হচ্ছে…</time><time id="live-time" class="clock-time">Time loading…</time></div>
   <div class="wrap">
     <header><a class="brand" href="#home">আমার সৃজনের জগৎ<span> ✦</span></a><nav aria-label="প্রধান নেভিগেশন"><a href="#about">আমার কথা</a><a href="#projects">সৃজনের বিষয়</a><a href="#write">লেখালেখি</a></nav></header>
     <main>
       <div class="hero" id="home"><div class="hero-layout">
         <div class="hero-copy">
           <div class="eyebrow"><span class="dot"></span> একটু নিজের মতো · একটু স্বপ্নের মতো</div>
-          <div class="live-clock" aria-label="বাংলা তারিখ ও সময়"><time id="live-date" class="clock-date">তারিখ দেখা হচ্ছে…</time><time id="live-time" class="clock-time">সময় দেখা হচ্ছে…</time></div>
           <h1>ভাবনারা যেখানে<br><span>গল্প হয়ে ওঠে</span></h1>
           <p class="lead">এটি আমার ছোট্ট ডিজিটাল ঠিকানা—গল্প, অনুভূতি, প্রযুক্তি, ছবি আর সৃজনশীলতার প্রতিটি সুন্দর মুহূর্তকে যত্ন করে রাখার জায়গা।</p>
           <div class="actions"><a class="btn primary" href="#write">✎ নতুন কিছু লিখি</a><a class="btn secondary" href="#projects">✧ আমার সৃজনের জগৎ</a></div>
@@ -66,8 +66,8 @@
     (function cleanTrackingParams(){const url=new URL(window.location.href);let changed=false;for(const key of [...url.searchParams.keys()]){if(key.toLowerCase().startsWith('utm_')){url.searchParams.delete(key);changed=true;}}if(changed)history.replaceState(null,'',url.pathname+url.search+url.hash);})();
     const bnDigits=value=>String(value).replace(/[0-9]/g,d=>'০১২৩৪৫৬৭৮৯'[Number(d)]);
     const dateFormat=new Intl.DateTimeFormat('bn-BD',{timeZone:'Asia/Kolkata',weekday:'long',day:'numeric',month:'long',year:'numeric'});
-    const timeFormat=new Intl.DateTimeFormat('bn-BD',{timeZone:'Asia/Kolkata',hour:'numeric',minute:'2-digit',second:'2-digit',hour12:true});
-    function updateClock(){const now=new Date();document.getElementById('live-date').textContent=dateFormat.format(now);document.getElementById('live-time').textContent=timeFormat.format(now)+' · ভারতীয় সময়';}
+    const timeFormat=new Intl.DateTimeFormat('en-IN',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+    function updateClock(){const now=new Date();document.getElementById('live-date').textContent=dateFormat.format(now);document.getElementById('live-time').textContent=timeFormat.format(now)+' · IST';}
     updateClock();setInterval(updateClock,1000);
     document.getElementById('year').textContent=bnDigits(new Date().getFullYear());
     const storageKey='amar-srijoner-jogot-entries-v1';
